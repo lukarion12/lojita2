@@ -46,6 +46,8 @@ Route::post('/clientes/editar/{id}', 'ClienteController@update');
 
 Route::get('/pedido-produto', function(){
     $pedidos = Pedido::with('produtos')->get();
-    
+    foreach($pedidos as $ped){
+        echo "ID:" .  $ped->id . "<br>";
+    }
 
 });
