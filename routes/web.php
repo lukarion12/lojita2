@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Pedido;
+use App\Produto;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,3 +43,9 @@ Route::get('/clientes/editar/{id}', 'ClienteController@edit');
 Route::get('/clientes/apagar/{id}', 'ClienteController@destroy');
 Route::post('/clientes','ClienteController@store');
 Route::post('/clientes/editar/{id}', 'ClienteController@update');
+
+Route::get('/pedido-produto', function(){
+    $pedidos = Pedido::with('produtos')->get();
+    
+
+});
