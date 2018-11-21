@@ -48,8 +48,13 @@ Route::post('/clientes/editar/{id}', 'ClienteController@update');
 Route::get('/pedido-produto', function(){
     $pedidos = Pedido::with('produtos')->get();
     foreach($pedidos as $ped){
-        echo "ID:" .  $ped->id . "<br>";
-        echo "Cliente:" . $ped->cliente->nome . "<br>" ;
+        echo "ID: " .  $ped->id . "<br>";
+        echo "Cliente: " . $ped->cliente->nome . "<br>" ;
+        $produtos = $ped->produtos;
+        foreach($produtos as $prod){
+        echo "produto: " . $prod->nome . "<br>";
+        echo "quantidade: " . $prod->pivot->quantidade . "<br>";
+        }
     }
 
 });
