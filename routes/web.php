@@ -55,6 +55,6 @@ Route::get('/pedido-produto', function(){
         echo "produto: " . $prod->nome . "<br>";
         echo "quantidade: " . $prod->pivot->quantidade . "<br>";
         }
-    }
+    } 
 
 });
