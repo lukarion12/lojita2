@@ -37,6 +37,7 @@ Route::get('/produtos/apagar/{id}', 'ProdutoController@destroy');
 Route::post('/produtos', 'ProdutoController@store');
 Route::post('/produtos/editar/{id}','ProdutoController@update');
 
+
 Route::get('/clientes', 'ClienteController@index');
 Route::get('/clientes/novo', 'ClienteController@create');
 Route::get('/clientes/editar/{id}', 'ClienteController@edit');
@@ -48,6 +49,7 @@ Route::get('/pedido-produto', function(){
     $pedidos = Pedido::with('produtos')->get();
     foreach($pedidos as $ped){
         echo "ID:" .  $ped->id . "<br>";
+        echo "Cliente:" . $ped->cliente->nome . "<br>" ;
     }
 
 });
